@@ -1,6 +1,6 @@
 #!/bin/bash
 
-APPLICATION_NAME=stork
+APPLICATION_NAME=simple_advection_moose
 # If $METHOD is not set, use opt
 if [ -z $METHOD ]; then
   export METHOD=opt
