@@ -3,6 +3,11 @@
 #include "AppFactory.h"
 #include "ModulesApp.h"
 
+// the include for simple_advection_mmose
+#include "MyAdvection.h"
+#include "MyDiffusion.h"
+#include "TimeStepCFL.h"
+
 template<>
 InputParameters validParams<SimpleAdvectionMooseApp>()
 {
@@ -42,6 +47,9 @@ extern "C" void SimpleAdvectionMooseApp__registerObjects(Factory & factory) { Si
 void
 SimpleAdvectionMooseApp::registerObjects(Factory & factory)
 {
+  registerTimeStepper(TimeStepCFL);
+  registerKernel(MyAdvection);
+  registerKernel(MyDiffusion);
 }
 
 // External entry point for dynamic syntax association
